@@ -16,6 +16,7 @@ package frc.robot;
 import static frc.robot.subsystems.vision.VisionConstants.*;
 
 import com.pathplanner.lib.auto.AutoBuilder;
+import com.pathplanner.lib.auto.NamedCommands;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.util.Units;
@@ -114,6 +115,10 @@ public class RobotContainer {
         break;
     }
 
+    // Register commands that will be used in PathPlanner
+    NamedCommands.registerCommand(
+        "Elevator L4", elevator.toTargetCommand(ElevatorConstants.elevatorMaxHeightInch));
+
     // Set up auto routines
     autoChooser = new LoggedDashboardChooser<>("Auto Choices", AutoBuilder.buildAutoChooser());
 
@@ -155,6 +160,13 @@ public class RobotContainer {
             () -> -controller.getLeftY(),
             () -> -controller.getLeftX(),
             () -> -controller.getRightX()));
+
+    // Toggle the use of vision for pose estimation
+    controller
+        .back()
+        .onTrue(
+            Commands.runOnce(() -> drive.isUsingVision = !drive.isUsingVision)
+                .ignoringDisable(true));
 
     // Lock to 50° when A button is held
     controller
