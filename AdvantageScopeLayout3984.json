@@ -69,11 +69,12 @@
             "/AdvantageKit/Elevator",
             "/AdvantageKit/RealOutputs/Vision",
             "/AdvantageKit/RealOutputs/Vision/Camera0",
-            "/AdvantageKit/RealOutputs/Vision/Camera1"
+            "/AdvantageKit/RealOutputs/Vision/Camera1",
+            "/AdvantageKit/RealOutputs/Odometry"
           ]
         },
         "tabs": {
-          "selected": 5,
+          "selected": 1,
           "tabs": [
             {
               "type": 0,
@@ -98,10 +99,17 @@
                     }
                   },
                   {
+                    "type": "mechanism",
+                    "logKey": "NT:/SmartDashboard/Elevator Sim",
+                    "logType": "Mechanism2d",
+                    "visible": true,
+                    "options": {}
+                  },
+                  {
                     "type": "ghost",
                     "logKey": "NT:/AdvantageKit/RealOutputs/Vision/Camera0/RobotPosesAccepted/0",
                     "logType": "Pose3d",
-                    "visible": true,
+                    "visible": false,
                     "options": {
                       "model": "Crab Bot",
                       "color": "#00ff00"
@@ -111,7 +119,7 @@
                     "type": "ghost",
                     "logKey": "NT:/AdvantageKit/RealOutputs/Vision/Camera1/RobotPosesAccepted/0",
                     "logType": "Pose3d",
-                    "visible": true,
+                    "visible": false,
                     "options": {
                       "model": "Crab Bot",
                       "color": "#ff0000"
@@ -126,16 +134,39 @@
                 "cameraIndex": -1,
                 "orbitFov": 50,
                 "cameraPosition": [
-                  4.392551440272403,
-                  12.355318381061434,
-                  0.1234354191649073
+                  7.89388650604338,
+                  2.8819781351565736,
+                  4.551072365050539
                 ],
                 "cameraTarget": [
-                  4.3925424567071065,
-                  3.3704145498979363,
-                  0.12343526407970862
+                  2.115763860122136,
+                  -0.10607430752210939,
+                  3.9000342993720993
                 ]
               },
+              "controlsHeight": 200
+            },
+            {
+              "type": 2,
+              "title": "Odometry",
+              "controller": {
+                "sources": [
+                  {
+                    "type": "robot",
+                    "logKey": "NT:/AdvantageKit/RealOutputs/Odometry/Robot",
+                    "logType": "Pose2d",
+                    "visible": true,
+                    "options": {}
+                  }
+                ],
+                "game": "2025 Field (Welded)",
+                "bumpers": "auto",
+                "origin": "blue",
+                "orientation": 0,
+                "size": 30
+              },
+              "controllerUUID": "8vrxoxg66hsyi6pbrs7u8rp6l5yhg3gx",
+              "renderer": null,
               "controlsHeight": 200
             },
             {
