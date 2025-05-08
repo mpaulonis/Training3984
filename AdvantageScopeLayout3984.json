@@ -70,11 +70,12 @@
             "/AdvantageKit/RealOutputs/Vision",
             "/AdvantageKit/RealOutputs/Vision/Camera0",
             "/AdvantageKit/RealOutputs/Vision/Camera1",
-            "/AdvantageKit/RealOutputs/Odometry"
+            "/AdvantageKit/RealOutputs/Odometry",
+            "/AdvantageKit/RealOutputs/Vision/Camera0/TagPoses"
           ]
         },
         "tabs": {
-          "selected": 1,
+          "selected": 2,
           "tabs": [
             {
               "type": 0,
@@ -134,14 +135,14 @@
                 "cameraIndex": -1,
                 "orbitFov": 50,
                 "cameraPosition": [
-                  7.89388650604338,
-                  2.8819781351565736,
-                  4.551072365050539
+                  1.1216801021070448,
+                  2.094121134828435,
+                  7.175365077577867
                 ],
                 "cameraTarget": [
-                  2.115763860122136,
-                  -0.10607430752210939,
-                  3.9000342993720993
+                  2.467318756388529,
+                  2.230492665638037,
+                  4.31829802034886
                 ]
               },
               "controlsHeight": 200
@@ -157,6 +158,16 @@
                     "logType": "Pose2d",
                     "visible": true,
                     "options": {}
+                  },
+                  {
+                    "type": "vision",
+                    "logKey": "NT:/AdvantageKit/RealOutputs/Vision/Camera0/TagPoses",
+                    "logType": "Pose3d[]",
+                    "visible": true,
+                    "options": {
+                      "color": "#00ff00",
+                      "size": "normal"
+                    }
                   }
                 ],
                 "game": "2025 Field (Welded)",
