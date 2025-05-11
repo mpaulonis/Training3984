@@ -28,6 +28,7 @@ import org.photonvision.PhotonCamera;
 public class VisionIOPhotonVision implements VisionIO {
   protected final PhotonCamera camera;
   protected final Transform3d robotToCamera;
+  protected Set<Short> lastTagIds = new HashSet<>();
 
   /**
    * Creates a new VisionIOPhotonVision.
@@ -47,7 +48,14 @@ public class VisionIOPhotonVision implements VisionIO {
     // Read new camera observations
     Set<Short> tagIds = new HashSet<>();
     List<PoseObservation> poseObservations = new LinkedList<>();
-    for (var result : camera.getAllUnreadResults()) {
+    var newResults = camera.getAllUnreadResults();
+    // if there are no new results (camera frame rate slower than roboRio loop),
+    // report the tagIds from the previous results to eliminate flicker in
+    // visualizing tagIds and tag poses
+    if (newResults.size() == 0) {
+      tagIds = lastTagIds;
+    }
+    for (var result : newResults) {
       // Update latest target observation
       if (result.hasTargets()) {
         inputs.latestTargetObservation =
@@ -127,5 +135,9 @@ public class VisionIOPhotonVision implements VisionIO {
     for (int id : tagIds) {
       inputs.tagIds[i++] = id;
     }
+
+    // store last set of tagIds for continuity if camera frame rate
+    // is slower than the roboRio loop rate
+    lastTagIds = tagIds;
   }
 }
