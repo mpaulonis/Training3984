@@ -3,8 +3,8 @@
     {
       "x": -1928,
       "y": -8,
-      "width": 1936,
-      "height": 1048,
+      "width": 1920,
+      "height": 1032,
       "state": {
         "sidebar": {
           "width": 312,
@@ -135,14 +135,14 @@
                 "cameraIndex": -1,
                 "orbitFov": 50,
                 "cameraPosition": [
-                  1.1216801021070448,
-                  2.094121134828435,
-                  7.175365077577867
+                  7.948062649177548,
+                  6.005638475828945,
+                  -7.819333705397672
                 ],
                 "cameraTarget": [
-                  2.467318756388529,
-                  2.230492665638037,
-                  4.31829802034886
+                  5.730421321434446,
+                  2.797757538322958,
+                  -3.926712150597755
                 ]
               },
               "controlsHeight": 200
@@ -166,6 +166,16 @@
                     "visible": true,
                     "options": {
                       "color": "#00ff00",
+                      "size": "normal"
+                    }
+                  },
+                  {
+                    "type": "vision",
+                    "logKey": "NT:/AdvantageKit/RealOutputs/Vision/Camera1/TagPoses",
+                    "logType": "Pose3d[]",
+                    "visible": true,
+                    "options": {
+                      "color": "#ff0000",
                       "size": "normal"
                     }
                   }
