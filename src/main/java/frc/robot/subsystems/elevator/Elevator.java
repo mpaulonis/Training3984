@@ -84,10 +84,10 @@ public class Elevator extends SubsystemBase {
 
         break;
       case REPLAY:
-        ffModel = new ElevatorFeedforward(0.0, 0.18, 0.43, 0.0);
+        ffModel = new ElevatorFeedforward(0.0, 0.17, 0.40, 0.02);
         pid =
             new ProfiledPIDController(
-                20.0,
+                2.5,
                 0.0,
                 0.0,
                 new TrapezoidProfile.Constraints(

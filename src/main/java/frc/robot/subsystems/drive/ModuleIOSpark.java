@@ -189,7 +189,7 @@ public class ModuleIOSpark implements ModuleIO {
               case 3 -> DriveConstants.backRightEncoderCanId;
               default -> 0;
             },
-            DriveConstants.kCANBus);
+            DriveConstants.rioCANBus);
 
     // Configure CANCoder
     CANcoderConfiguration cancoderConfig = new CANcoderConfiguration();

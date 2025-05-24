@@ -98,7 +98,7 @@ public class DriveConstants {
   public static final boolean invertCANcoders = false;
 
   // Using standard CAN bus on the roboRio
-  public static final CANBus kCANBus = new CANBus("rio", "./logs/example.hoot");
+  public static final CANBus rioCANBus = new CANBus("rio", "./logs/example.hoot");
 
   // Turn PID configuration
   public static final double turnKp = 2.0;
