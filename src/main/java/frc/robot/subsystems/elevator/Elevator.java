@@ -33,17 +33,17 @@ public class Elevator extends SubsystemBase {
   // Create a Mechanism2d display of the elevator
   // To display in AdvantageScope, lengths must be in meters
   private final Mechanism2d mech2d =
-      new Mechanism2d(Units.inchesToMeters(40), Units.inchesToMeters(80));
+      new Mechanism2d(Units.inchesToMeters(31.5), Units.inchesToMeters(80));
   private final MechanismRoot2d baseRoot =
-      mech2d.getRoot("BaseRoot", Units.inchesToMeters(20), Units.inchesToMeters(4));
+      mech2d.getRoot("BaseRoot", Units.inchesToMeters(21), Units.inchesToMeters(4));
   private final MechanismLigament2d base =
       baseRoot.append(new MechanismLigament2d("Base", Units.inchesToMeters(37), 90));
   private final MechanismRoot2d firstRoot =
-      mech2d.getRoot("FirstRoot", Units.inchesToMeters(20), Units.inchesToMeters(4));
+      mech2d.getRoot("FirstRoot", Units.inchesToMeters(21), Units.inchesToMeters(4));
   private final MechanismLigament2d first =
       firstRoot.append(new MechanismLigament2d("First", Units.inchesToMeters(38), 90));
   private final MechanismRoot2d secondRoot =
-      mech2d.getRoot("SecondRoot", Units.inchesToMeters(38), Units.inchesToMeters(13));
+      mech2d.getRoot("SecondRoot", Units.inchesToMeters(21), Units.inchesToMeters(13));
   private final MechanismLigament2d secondDown =
       secondRoot.append(new MechanismLigament2d("SecondDown", Units.inchesToMeters(7), -90));
   private final MechanismLigament2d secondUp =
@@ -142,8 +142,9 @@ public class Elevator extends SubsystemBase {
     Logger.recordOutput("Elevator/status", elevatorStatus);
 
     // Update the Mechanism2d visualization positions
-    firstRoot.setPosition(0.5, 0.1 + inputs.positionInch / 39.37);
-    secondRoot.setPosition(0.5, 0.330 + (2 * inputs.positionInch / 39.37));
+    firstRoot.setPosition(Units.inchesToMeters(21), Units.inchesToMeters(4 + inputs.positionInch));
+    secondRoot.setPosition(
+        Units.inchesToMeters(21), Units.inchesToMeters(13 + (2 * inputs.positionInch)));
   }
 
   /** Stop the elevator */

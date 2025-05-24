@@ -24,8 +24,9 @@ import edu.wpi.first.math.util.Units;
 public class DriveConstants {
   public static final double maxSpeedMetersPerSec = 4.4;
   public static final double odometryFrequency = 100.0; // Hz
-  public static final double trackWidth = Units.inchesToMeters(22.75);
-  public static final double wheelBase = Units.inchesToMeters(26.25);
+  // For Mk4i modules, wheel center is 2.625 in from frame edge
+  public static final double trackWidth = Units.inchesToMeters(22.75); // 28 in frame
+  public static final double wheelBase = Units.inchesToMeters(26.25); // 31.5 in frame
   public static final double driveBaseRadius = Math.hypot(trackWidth / 2.0, wheelBase / 2.0);
   public static final Translation2d[] moduleTranslations =
       new Translation2d[] {
