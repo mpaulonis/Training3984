@@ -1,0 +1,5 @@
+To enable Java from the command line, add the following string to the "Path" user environment variable in Windows:
+
+C:\Users\Public\wpilib\2025\jdk\bin
+
+This is the location of Java distributed with WPILib, which is the version needed to run PhotonVision on Windows.  Note that for different robotics seasons, the year will change in this string.
