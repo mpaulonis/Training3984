@@ -65,7 +65,7 @@ public class DriveConstants {
   public static final double wheelRadiusMeters = Units.inchesToMeters(1.98);
   public static final double driveMotorReduction =
       (50.0 / 14.0) * (17.0 / 27.0) * (45.0 / 15.0); // SDS Mk4i L2
-  public static final DCMotor driveGearbox = DCMotor.getNEO(1);
+  public static final DCMotor driveMotor = DCMotor.getNEO(1);
 
   // Drive encoder configuration
   public static final double driveEncoderPositionFactor =
@@ -87,7 +87,7 @@ public class DriveConstants {
   public static final boolean turnInverted = false;
   public static final int turnMotorCurrentLimit = 20;
   public static final double turnMotorReduction = 150.0 / 7.0; // SDS Mk4i
-  public static final DCMotor turnGearbox = DCMotor.getNEO(1);
+  public static final DCMotor turnMotor = DCMotor.getNEO(1);
 
   // Turn encoder configuration
   public static final boolean turnEncoderInverted = true;
@@ -120,7 +120,7 @@ public class DriveConstants {
               wheelRadiusMeters,
               maxSpeedMetersPerSec,
               wheelCOF,
-              driveGearbox.withReduction(driveMotorReduction),
+              driveMotor.withReduction(driveMotorReduction),
               driveMotorCurrentLimit,
               1),
           moduleTranslations);
