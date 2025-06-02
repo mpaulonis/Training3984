@@ -23,7 +23,6 @@ public class ElevatorIOSparkMax implements ElevatorIO {
           * ElevatorConstants.elevatorMinHeightInch
           / (ElevatorConstants.sprocketPitchDiameter * Math.PI);
 
-  /** Construct an elevator */
   public ElevatorIOSparkMax() {
     spark = new SparkMax(ElevatorConstants.leaderCanId, MotorType.kBrushless);
     sparkFollower = new SparkMax(ElevatorConstants.followerCanId, MotorType.kBrushless);
@@ -74,12 +73,5 @@ public class ElevatorIOSparkMax implements ElevatorIO {
   @Override
   public void stop() {
     spark.stopMotor();
-  }
-
-  @Override
-  public void setBrakeMode(boolean enable) {
-    config = new SparkMaxConfig();
-    config.idleMode(enable ? IdleMode.kBrake : IdleMode.kCoast);
-    spark.configure(config, ResetMode.kNoResetSafeParameters, PersistMode.kNoPersistParameters);
   }
 }
