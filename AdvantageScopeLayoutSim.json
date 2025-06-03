@@ -1,10 +1,10 @@
 {
   "hubs": [
     {
-      "x": 152,
-      "y": 112,
-      "width": 1454,
-      "height": 866,
+      "x": 2,
+      "y": 55,
+      "width": 1440,
+      "height": 853,
       "state": {
         "sidebar": {
           "width": 312,
@@ -75,7 +75,7 @@
           ]
         },
         "tabs": {
-          "selected": 4,
+          "selected": 1,
           "tabs": [
             {
               "type": 0,
@@ -135,32 +135,16 @@
                 "cameraIndex": -1,
                 "orbitFov": 50,
                 "cameraPosition": [
-                  7.948062649177549,
-                  6.005638475828945,
-                  -7.819333705397673
+                  4.110923123068897,
+                  10.28679688741707,
+                  0.1230915821440413
                 ],
                 "cameraTarget": [
-                  5.730421321434446,
-                  2.797757538322958,
-                  -3.926712150597755
+                  4.110913336428722,
+                  0.4999958898598759,
+                  0.12309163824983273
                 ]
               },
-              "controlsHeight": 200
-            },
-            {
-              "type": 10,
-              "title": "Elevator Viz",
-              "controller": [
-                {
-                  "type": "mechanism",
-                  "logKey": "NT:/SmartDashboard/Elevator Sim",
-                  "logType": "Mechanism2d",
-                  "visible": true,
-                  "options": {}
-                }
-              ],
-              "controllerUUID": "qgn6qi959zwznjnus1lam4lbff2xeucz",
-              "renderer": null,
               "controlsHeight": 200
             },
             {
@@ -411,6 +395,22 @@
                 "rightFilter": 0
               },
               "controllerUUID": "izut797tizhpccrwt7wcovav1sdmrxk8",
+              "renderer": null,
+              "controlsHeight": 200
+            },
+            {
+              "type": 10,
+              "title": "Elevator Viz",
+              "controller": [
+                {
+                  "type": "mechanism",
+                  "logKey": "NT:/SmartDashboard/Elevator Sim",
+                  "logType": "Mechanism2d",
+                  "visible": true,
+                  "options": {}
+                }
+              ],
+              "controllerUUID": "qgn6qi959zwznjnus1lam4lbff2xeucz",
               "renderer": null,
               "controlsHeight": 200
             }
