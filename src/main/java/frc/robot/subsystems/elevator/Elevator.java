@@ -83,11 +83,11 @@ public class Elevator extends SubsystemBase {
                     ElevatorConstants.elevatorMaxAcceleration));
 
         break;
-      case REPLAY:
+      case SIM:
         ffModel = new ElevatorFeedforward(0.0, 0.17, 0.40, 0.02);
         pid =
             new ProfiledPIDController(
-                2.5,
+                5,
                 0.0,
                 0.0,
                 new TrapezoidProfile.Constraints(
@@ -95,11 +95,11 @@ public class Elevator extends SubsystemBase {
                     ElevatorConstants.elevatorMaxAcceleration));
 
         break;
-      case SIM:
+      case REPLAY:
         ffModel = new ElevatorFeedforward(0.0, 0.17, 0.40, 0.02);
         pid =
             new ProfiledPIDController(
-                5,
+                2.5,
                 0.0,
                 0.0,
                 new TrapezoidProfile.Constraints(

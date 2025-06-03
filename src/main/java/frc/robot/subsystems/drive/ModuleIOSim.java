@@ -54,19 +54,20 @@ public class ModuleIOSim implements ModuleIO {
     // Run closed-loop control
     if (driveClosedLoop) {
       driveFBVolts = driveController.calculate(driveSim.getAngularVelocityRadPerSec());
-      driveAppliedVolts = driveFFVolts + driveFBVolts;
+      driveAppliedVolts = MathUtil.clamp(driveFFVolts + driveFBVolts, -12.0, 12.0);
     } else {
       driveController.reset();
     }
     if (turnClosedLoop) {
-      turnAppliedVolts = turnController.calculate(turnSim.getAngularPositionRad());
+      turnAppliedVolts =
+          MathUtil.clamp(turnController.calculate(turnSim.getAngularPositionRad()), -12.0, 12.0);
     } else {
       turnController.reset();
     }
 
     // Update simulation state
-    driveSim.setInputVoltage(MathUtil.clamp(driveAppliedVolts, -12.0, 12.0));
-    turnSim.setInputVoltage(MathUtil.clamp(turnAppliedVolts, -12.0, 12.0));
+    driveSim.setInputVoltage(driveAppliedVolts);
+    turnSim.setInputVoltage(turnAppliedVolts);
     driveSim.update(0.02);
     turnSim.update(0.02);
 

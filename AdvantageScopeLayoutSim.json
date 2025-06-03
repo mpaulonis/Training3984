@@ -1,8 +1,8 @@
 {
   "hubs": [
     {
-      "x": -7,
-      "y": -7,
+      "x": 152,
+      "y": 112,
       "width": 1454,
       "height": 866,
       "state": {
@@ -75,7 +75,7 @@
           ]
         },
         "tabs": {
-          "selected": 2,
+          "selected": 4,
           "tabs": [
             {
               "type": 0,
@@ -148,6 +148,22 @@
               "controlsHeight": 200
             },
             {
+              "type": 10,
+              "title": "Elevator Viz",
+              "controller": [
+                {
+                  "type": "mechanism",
+                  "logKey": "NT:/SmartDashboard/Elevator Sim",
+                  "logType": "Mechanism2d",
+                  "visible": true,
+                  "options": {}
+                }
+              ],
+              "controllerUUID": "qgn6qi959zwznjnus1lam4lbff2xeucz",
+              "renderer": null,
+              "controlsHeight": 200
+            },
+            {
               "type": 2,
               "title": "Odometry",
               "controller": {
@@ -192,7 +208,7 @@
             },
             {
               "type": 1,
-              "title": "Mod1 Speed",
+              "title": "Mod0 Speed",
               "controller": {
                 "leftSources": [
                   {
@@ -258,7 +274,7 @@
             },
             {
               "type": 1,
-              "title": "Mod1 Turn",
+              "title": "Mod0 Turn",
               "controller": {
                 "leftSources": [
                   {
@@ -395,22 +411,6 @@
                 "rightFilter": 0
               },
               "controllerUUID": "izut797tizhpccrwt7wcovav1sdmrxk8",
-              "renderer": null,
-              "controlsHeight": 200
-            },
-            {
-              "type": 10,
-              "title": "Elevator Viz",
-              "controller": [
-                {
-                  "type": "mechanism",
-                  "logKey": "NT:/SmartDashboard/Elevator Sim",
-                  "logType": "Mechanism2d",
-                  "visible": true,
-                  "options": {}
-                }
-              ],
-              "controllerUUID": "qgn6qi959zwznjnus1lam4lbff2xeucz",
               "renderer": null,
               "controlsHeight": 200
             }
