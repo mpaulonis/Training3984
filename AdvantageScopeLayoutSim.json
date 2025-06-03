@@ -1,10 +1,10 @@
 {
   "hubs": [
     {
-      "x": 2,
-      "y": 55,
-      "width": 1440,
-      "height": 853,
+      "x": 8,
+      "y": 51,
+      "width": 1432,
+      "height": 733,
       "state": {
         "sidebar": {
           "width": 312,
@@ -14,7 +14,6 @@
             "/AdvantageKit/RealOutputs",
             "/AdvantageKit/RealOutputs/Elevator",
             "/AdvantageKit/RealOutputs/Winch",
-            "/SmartDashboard",
             "/AdvantageKit/RealOutputs/Coraler",
             "/AdvantageKit/RealOutputs/Vision/Camera0/RobotPosesAccepted",
             "/AdvantageKit/RealOutputs/Vision/Camera1/RobotPosesAccepted",
@@ -110,7 +109,7 @@
                     "type": "ghost",
                     "logKey": "NT:/AdvantageKit/RealOutputs/Vision/Camera0/RobotPosesAccepted/0",
                     "logType": "Pose3d",
-                    "visible": false,
+                    "visible": true,
                     "options": {
                       "model": "Crab Bot",
                       "color": "#00ff00"
@@ -120,7 +119,7 @@
                     "type": "ghost",
                     "logKey": "NT:/AdvantageKit/RealOutputs/Vision/Camera1/RobotPosesAccepted/0",
                     "logType": "Pose3d",
-                    "visible": false,
+                    "visible": true,
                     "options": {
                       "model": "Crab Bot",
                       "color": "#ff0000"
@@ -135,9 +134,9 @@
                 "cameraIndex": -1,
                 "orbitFov": 50,
                 "cameraPosition": [
-                  4.110923123068897,
+                  4.110923123503906,
                   10.28679688741707,
-                  0.1230915821440413
+                  0.12309158214154743
                 ],
                 "cameraTarget": [
                   4.110913336428722,
