@@ -142,4 +142,13 @@ public class VisionIOPhotonVision implements VisionIO {
     // is slower than the roboRio loop rate
     lastTagIds = tagIds;
   }
+
+  /**
+   * Clear any unread results from the camera. Useful any time something about the camera changes
+   * and any pending results are no longer relevant.
+   */
+  @Override
+  public void flushCameraResults() {
+    camera.getAllUnreadResults();
+  }
 }

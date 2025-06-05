@@ -22,6 +22,7 @@ import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.GenericHID;
+import edu.wpi.first.wpilibj.RobotBase;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
@@ -51,7 +52,6 @@ import org.littletonrobotics.junction.networktables.LoggedDashboardChooser;
  * periodic methods (other than the scheduler calls). Instead, the structure of the robot (including
  * subsystems, commands, and button mappings) should be declared here.
  */
-@SuppressWarnings({"unused"}) // for Vision
 public class RobotContainer {
   // Subsystems
   private final Drive drive;
@@ -75,7 +75,8 @@ public class RobotContainer {
                 new ModuleIOSpark(0),
                 new ModuleIOSpark(1),
                 new ModuleIOSpark(2),
-                new ModuleIOSpark(3));
+                new ModuleIOSpark(3),
+                this::resetPose);
         elevator = new Elevator(new ElevatorIOSparkMax());
         vision =
             new Vision(
@@ -92,7 +93,8 @@ public class RobotContainer {
                 new ModuleIOSim(),
                 new ModuleIOSim(),
                 new ModuleIOSim(),
-                new ModuleIOSim());
+                new ModuleIOSim(),
+                this::resetPose);
         elevator = new Elevator(new ElevatorIOSim());
         vision =
             new Vision(
@@ -109,7 +111,8 @@ public class RobotContainer {
                 new ModuleIO() {},
                 new ModuleIO() {},
                 new ModuleIO() {},
-                new ModuleIO() {});
+                new ModuleIO() {},
+                this::resetPose);
         elevator = new Elevator(new ElevatorIO() {});
         vision = new Vision(drive::addVisionMeasurement, new VisionIO() {}, new VisionIO() {});
         break;
@@ -200,6 +203,20 @@ public class RobotContainer {
 
     // POV right sets elevator to mid height
     controller.povRight().onTrue(elevator.toTargetCommand(ElevatorConstants.elevatorMidHeightInch));
+  }
+
+  /**
+   * Set the robot pose to a new location. If in simulation, the simulated cameras will be reporting
+   * results from the previous robot pose, so reset the simulated cameras to the new pose so they
+   * immediately produce accurate results.
+   *
+   * @param pose The new Pose2d that the robot is being set to
+   */
+  public void resetPose(Pose2d pose) {
+    drive.setPose(pose);
+    if (RobotBase.isSimulation()) {
+      vision.resetSimCameras(pose);
+    }
   }
 
   /**

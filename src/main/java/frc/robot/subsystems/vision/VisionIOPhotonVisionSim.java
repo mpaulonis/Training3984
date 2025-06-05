@@ -73,4 +73,17 @@ public class VisionIOPhotonVisionSim extends VisionIOPhotonVision {
     visionSim.update(poseSupplier.get());
     super.updateInputs(inputs);
   }
+
+  /**
+   * Reset the simulated camera to a provided robot pose. This is useful in simulation of autonomous
+   * when PathPlanner resets the robot pose to the starting waypoint. The robot pose for the
+   * simulated camera could have been anywhere (and often at (0,0,0)) providing vision results and
+   * it needs to shift immediately to the starting waypoint so the vision pose estimate becomes
+   * consistent with the robot pose.
+   */
+  @Override
+  public void resetSimCamera(Pose2d pose) {
+    visionSim.update(pose);
+    visionSim.resetRobotPose(pose);
+  }
 }

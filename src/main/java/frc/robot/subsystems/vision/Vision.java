@@ -184,6 +184,19 @@ public class Vision extends SubsystemBase {
         allRobotPosesRejected.toArray(new Pose3d[allRobotPosesRejected.size()]));
   }
 
+  /**
+   * If changing the robot pose used for simulated cameras (e.g. simulating an autonomous path)
+   * discard any pending results from a previous simulated location and reset each simulated camera
+   * to the new robot pose so it can immediately start producing results from the perspective of
+   * that robot pose.
+   */
+  public void resetSimCameras(Pose2d pose) {
+    for (int i = 0; i < io.length; i++) {
+      io[i].flushCameraResults();
+      io[i].resetSimCamera(pose);
+    }
+  }
+
   @FunctionalInterface
   public static interface VisionConsumer {
     public void accept(
